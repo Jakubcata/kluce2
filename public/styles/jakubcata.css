@@ -1,0 +1,19 @@
+.default-hidden {
+  display: none;
+}
+
+.transparent-background {
+   background-color: rgba(255,255,255,0.3) !important;
+}
+
+.jk-color-background {
+  background-color: #3F9DAD !important;
+}
+
+.jk-color-li2-background {
+  background-color: #68bac8 !important;
+}
+
+.jk-color-li-background {
+  background-color: #4fafbf !important;
+}
