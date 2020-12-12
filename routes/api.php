@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/keys', 'KeysController@getKeys')->name('getKeys');
+Route::get('/{group}/keys', 'KeysController@getKeys')->name('getKeys');
 
-Route::post('/key/change', 'KeysController@changeKey')->name('changeKey');
+Route::post('/{group}/key/change', 'KeysController@changeKey')->name('changeKey');
 
-Route::get('/owners', 'KeysController@getOwners')->name('getOwners');
+Route::get('/{group}/owners', 'KeysController@getOwners')->name('getOwners');
 
-Route::post('/owner/new', 'KeysController@newOwner')->name('newOwner');
+Route::post('/{group}/owner/new', 'KeysController@newOwner')->name('newOwner');

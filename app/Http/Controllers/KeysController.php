@@ -6,32 +6,35 @@ use Illuminate\Http\Request;
 use App\Owner;
 use App\Key;
 use App\History;
+use App\Group;
 use Carbon\Carbon;
 
 class KeysController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request,$group)
     {
-        return view('index');
+        return view('index', ['group'=>$group]);
     }
 
-    public function getKeys(Request $request)
+    public function getKeys(Request $request, $group)
     {
-        $keys = Key::all();
-        return response()->json($keys->map(function ($key) {
+        $group = Group::where("name",$group)->firstOrFail();
+        return response()->json($group->keys->map(function ($key) {
             $key['owner'] = $key->owner;
             return $key;
         }));
     }
 
-    public function getOwners(Request $request)
+    public function getOwners(Request $request, $group)
     {
-        $owners = Owner::all();
-        return response()->json($owners);
+        $group = Group::where("name",$group)->firstOrFail();
+        return response()->json($group->owners);
     }
 
-    public function newOwner(Request $request)
+    public function newOwner(Request $request, $group)
     {
+        $group = Group::where("name",$group)->firstOrFail();
+
         $request->validate([
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
@@ -39,7 +42,8 @@ class KeysController extends Controller
             'facebook' => 'required|max:255',
         ]);
 
-        Owner::create($request->all());
+        $owner = new Owner($request->all());
+        $group->owners()->save($owner);
         return response()->json(["status"=>"ok"]);
     }
 

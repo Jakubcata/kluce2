@@ -60,6 +60,32 @@ class MigrateDB extends Command
           $newKey = new Key(["name"=>$key->name, "color"=>$key->color, "reason"=>$key->reason, "booked_until"=>$key->booked_until]);
           $user = Owner::find($key->booked_by);
           $newKey->owner()->associate($user);
+          $newKey->group()->associate($jakubcataGroup);
+          $newKey->save();
+        }
+
+
+
+        $bwGroup = new Group([
+            "name"=>"bw",
+        ]);
+        $bwGroup->save();
+
+        $users = DB::select("select id, name, surname, phone, facebook from bw_potential_key_holders");
+        foreach($users as $user){
+          $fullName = explode(" ",$user->name);
+          $newUser = new Owner(["name"=>$user->name, "surname"=>$user->surname, "phone"=>$user->phone, "facebook"=>$user->facebook]);
+          $newUser->group()->associate($bwGroup);
+          $newUser->save();
+
+        }
+
+        $keys = DB::select("select id, name, booked_until, booked_by, reason, color from bw_keys_in_circulation");
+        foreach($keys as $key){
+          $newKey = new Key(["name"=>$key->name, "color"=>$key->color, "reason"=>$key->reason, "booked_until"=>$key->booked_until]);
+          $user = Owner::find($key->booked_by);
+          $newKey->owner()->associate($user);
+          $newKey->group()->associate($bwGroup);
           $newKey->save();
         }
 

@@ -12,5 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return redirect('/jakubcata/');
+});
 
-Route::get('/', 'KeysController@index')->name('index');
+Route::get('/{group}/', 'KeysController@index')->name('index');

@@ -10,12 +10,17 @@ class Key extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name','reason', 'booked_until','color',
+        'name','reason', 'booked_until','color','group',
     ];
 
     public function owner()
     {
         return $this->belongsTo(Owner::class);
+    }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
     }
 
     public function history()

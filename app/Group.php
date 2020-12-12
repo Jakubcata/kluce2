@@ -13,8 +13,13 @@ class Group extends Model
         'name',
     ];
 
-    public function users()
+    public function owners()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Owner::class);
+    }
+
+    public function keys()
+    {
+        return $this->hasMany(Key::class);
     }
 }

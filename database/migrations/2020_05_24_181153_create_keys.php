@@ -16,6 +16,8 @@ class CreateKeys extends Migration
         Schema::create('keys', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('owners');
             $table->string('color');
