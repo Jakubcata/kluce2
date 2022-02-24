@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{group}/keys', 'KeysController@getKeys')->name('getKeys');
-
-Route::post('/{group}/key/change', 'KeysController@changeKey')->name('changeKey');
-
-Route::get('/{group}/owners', 'KeysController@getOwners')->name('getOwners');
-
-Route::post('/{group}/owner/new', 'KeysController@newOwner')->name('newOwner');
+Route::domain('{group}.jakubcata.eu')->group(function () {
+    Route::get('/keys', 'KeysController@getKeys')->name('getKeys');
+    Route::post('/key/change', 'KeysController@changeKey')->name('changeKey');
+    Route::get('/owners', 'KeysController@getOwners')->name('getOwners');
+    Route::post('/owner/new', 'KeysController@newOwner')->name('newOwner');
+});

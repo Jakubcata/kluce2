@@ -34,9 +34,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 
 function fetchInfoAndPreset() {
-  console.log(group);
-$.get("api/"+group+"/keys", function(keys, status) {
-  $.get("api/"+group+"/owners", function(users, status) {
+$.get("api/keys", function(keys, status) {
+  $.get("api/owners", function(users, status) {
 
   })
   .then((users) => {
@@ -101,7 +100,7 @@ for (i in keys) {
         newHolderData.reason = inputReason.val();
         console.log(newHolderData);
 
-        $.post("api/"+group+"/key/change", newHolderData, function(data, status){
+        $.post("api/key/change", newHolderData, function(data, status){
             fetchInfoAndPreset();
         });
         changeHolderModal.modal('hide');
@@ -261,7 +260,7 @@ $('#btnSaveUser').click(() => {
     facebook: $('#inputFacebookLink').val(),
     phone: $('#inputPhone').val(),
   }
-  $.post("api/"+group+"/owner/new", holder, function(data, status){
+  $.post("api/owner/new", holder, function(data, status){
       console.log('úspech');
       $("#cardRow").empty();
       fetchInfoAndPreset();
