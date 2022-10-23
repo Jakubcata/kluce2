@@ -36,6 +36,9 @@
           <li class="nav-item">
             <a class="nav-link" target="_blank" href="https://docs.google.com/spreadsheets/d/1eH5YqEM_BFtvCm4PZvEjS5bPgR_skHv_c65X23VXbyE/edit?fbclid=IwAR3GRFhi9K3zAcmowYPh0zAHkRcVui7F3DnKKQFaFvz2Pz0hwPU5J0PYbdM#gid=1393635604">Farské priestory</a>
           </li>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="http://faravent.jakubcata.eu">Ventilátor</a>
+            </li>
         </ul>
         <div class="ml-md-5">
           <button id="btnInstall" type="button" class="btn btn-info btn-sm d-none">
@@ -57,7 +60,12 @@
 </div>
       </div>
     </nav>
-
+    <div class="alert alert-danger text-center" role="alert">
+        Prosíme vás, aby ste pred odchodom na Slovensko odovzdali kľúče niekomu v Brne. Ďakujeme.
+    </div>
+    <div class="alert alert-warning text-center" role="warning">
+        Prebehla aktualizácia kľúčov. V prípade problémov píšte Mišovi K. na messenger, alebo volajte na +420 702 263 724.
+    </div>
     <div class="container-fluid">
 
   <div class="row" id="cardRow">

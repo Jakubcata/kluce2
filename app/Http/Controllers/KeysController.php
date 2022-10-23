@@ -13,7 +13,7 @@ class KeysController extends Controller
 {
     public function index(Request $request,$group)
     {
-        return view('index', ['group'=>$group]);
+        return view('index_'.$group, ['group'=>$group]);
     }
 
     public function getKeys(Request $request, $group)
