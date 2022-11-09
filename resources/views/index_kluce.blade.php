@@ -63,9 +63,6 @@
     <div class="alert alert-danger text-center" role="alert">
         Prosíme vás, aby ste pred odchodom na Slovensko odovzdali kľúče niekomu v Brne. Ďakujeme.
     </div>
-    <div class="alert alert-warning text-center" role="warning">
-        Prebehla aktualizácia kľúčov. V prípade problémov píšte Mišovi K. na messenger, alebo volajte na +420 702 263 724.
-    </div>
     <div class="container-fluid">
 
   <div class="row" id="cardRow">
