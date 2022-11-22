@@ -233,7 +233,7 @@ $('#inputFirstName').on('input', (e) => {
 });
 
 $('#inputFacebookLink').on('input', (e) => {
-  let res = /.*\.com\/[0-9a-zA-Z\.]{2,}$/.test(e.target.value);
+  let res = /.*\.com\/([0-9a-zA-Z\.]{2,}|profile.php\?id=\d+)$/.test(e.target.value);
   if (res || e.target.value == '') {
     $('#inputFacebookLink').removeClass('border-danger').siblings('.invalid-feedback').slideUp();
     if (!e.target.value == '')
